@@ -28,7 +28,7 @@ private:
 	void increment(TreeNode *) const;
 	int largest(TreeNode *) const;
 	int count(TreeNode *, int ) const;
-	int height(TreeNode *, int, int ) const;
+	int height(TreeNode *) const;
 
 public:
 
@@ -65,41 +65,15 @@ public:
 		return count(root, tot);
 	}
 	int altitude() const {
-		int l = 1;
-		int r = 1;
-		return height(root, l, r);
+		return height(root);
 	}
 };
 
-int IntBinaryTree::height(TreeNode *tree, int l, int r) const {
-	if (total() == 1)
-		return 1;
-	if (tree->left != NULL) {
-		l++;
-		l = height(tree->left, l, r);
-	}
-	if(tree->left == NULL && tree->right != NULL) {
-		l = height(tree->right, l, r);
-	}
-	
-	// if(l < r)
-	// 	l = r;
-	// if (tree->left != NULL) {
-	// 	l++;
-	// 	l = height(tree->left, l, r);
-	// }
-	// if (tree->right != NULL) {
-	// 	r++;
-	// 	r = height(tree->right, l, r);
-	// }
-	int hl = l;
-	int hr = 0;
+int IntBinaryTree::height(TreeNode *tree) const {
+	if(tree == NULL)
+		return -1;
 
-	if(hl >= hr)
-		return hl;
-	else if (hl < hr)
-		return hr;
-	return 0;
+	return 1 + max(height(tree->left), height(tree->right));
 }
 
 int IntBinaryTree::count(TreeNode *tree, int tot) const{
@@ -226,16 +200,16 @@ int main() {
 	cout << "Inserting the numbers 5, 8, 3, 12, 9, 1"
 		", 1000, 3, 500.\n\n";
 	tree.insert(6);
-	// tree.insert(8);
+	tree.insert(8);
 	tree.insert(3);
-	// tree.insert(12);
-	// tree.insert(9);
-	// tree.insert(1);
+	tree.insert(12);
+	tree.insert(9);
+	tree.insert(1);
 	tree.insert(5);
-	// tree.insert(1000);
-	// tree.insert(4);
-	// tree.insert(2);
-	// tree.insert(500);
+	tree.insert(1000);
+	tree.insert(4);
+	tree.insert(2);
+	tree.insert(500);
 
 	// tree.plusOne();
 
