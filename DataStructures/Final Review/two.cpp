@@ -2,22 +2,25 @@
 #include <queue>
 using namespace std;
 
-class Node {
-	int value;
-	
+class Stack {
+	class Element {
+		int key, int value;
+	};
+	priority_queue<int> q;
+
+	int top = 0;
+
+	void push(int key);
 };
 
-class IntClass {
-};
+void Stack::push(int key) {
+	q.push(Element(top++, key));
+}
 
 int main() {
-	IntClass one;
-	int y;
-	for(int i = 0; i < 5; x++) {
-		cout << "Number? ";
-		cin >> y;
-		one.push(i, y);
-	}
+	priority_queue<int> one;
+
+
 
 	return 0;
 }
