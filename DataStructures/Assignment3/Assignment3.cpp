@@ -1,5 +1,5 @@
 /************************************************************
-* ASSIGNMENT 3												*
+* ASSIGNMENT 3 on github									*
 * This program implements a priority queue using a 			*
 * 	traditional linked-list									*
 *															*
